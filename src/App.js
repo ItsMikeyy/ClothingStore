@@ -1,24 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment } from "react";
+import { Route, Switch } from "react-router-dom";
+
+import Store from "./pages/Store";
+import Home from "./pages/Home";
+import Inventory from "./pages/Inventory"
+import AddProductForm from "./Components/Forms/AddProductForm";
+import ProductGroup from "./Components/Products/ProductGroup";
+import Product from "./Components/Products/Product";
+import EditProductForm from "./Components/Forms/EditProductForm";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+
+        <Route exact path="/store/:productFilter/:productId">
+          <Product />
+        </Route>
+        
+        <Route exact path="/store/:productFilter">
+          <ProductGroup />
+        </Route>
+
+        <Route path="/store">
+          <Store />
+        </Route>
+
+  
+
+        <Route path="/inventory" exact>
+          <Inventory />
+        </Route>
+        <Route path="/inventory/add" exact>
+          <AddProductForm />
+        </Route>
+
+        <Route exact path="/inventory/:productId">
+          <EditProductForm />
+        </Route>
+      </Switch>
+    </Fragment>
   );
 }
 

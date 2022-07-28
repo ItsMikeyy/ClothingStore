@@ -1,0 +1,30 @@
+.product-grid {
+  margin: 4rem;
+  width: 80vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.product {
+  border: black solid 3px;
+
+}
+.image-container {
+  display: flex;
+}
+.product-img {
+  width: 50%;
+  height: auto;
+  margin: 0 auto;
+
+}
+
+@media screen and (max-width:1000px) {
+  .product-grid {
+    margin: 0;
+    padding: 1rem;
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+}

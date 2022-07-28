@@ -1,0 +1,55 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+a:active {
+  color: black;
+}
+.products {
+  margin-top: 5rem;
+}
+.products > a > div {
+  margin-top: 1rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.product-info h3 {
+  padding: 0.5rem;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+}
+
+.products > a > div > p {
+  padding: 0.5rem;
+  overflow-wrap: anywhere;
+}
+
+.products > a > div:hover {
+  background-color: #81b3e6;
+  cursor: pointer;
+}
+
+.product-info {
+  margin-top: 1rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+@media screen and (max-width: 750px) {
+  .products > a > div > p {
+    padding: 0.1rem;
+    font-size: 0.6rem;
+  }
+
+  .products > a > div > h3 {
+    padding: 0.1rem;
+    font-size: 0.7rem;
+  }
+
+  .product-info h3 {
+   font-size: 1rem;
+  }
+}

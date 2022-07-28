@@ -1,0 +1,39 @@
+.title-header {
+  text-align: center;
+  margin-top: 2rem;
+}
+.add-form {
+  width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+
+} 
+.add-form > * {
+  margin: 1rem 0;
+  width: 30%;
+  min-width: 300px;
+}
+
+.text-input {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.submit-button {
+  margin-top: 2rem;
+  padding: 0.8rem;
+  font-size: 1.5rem;
+  border: red solid 3px;
+  border-radius: 30px;
+  color: red;
+  background-color: white;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.submit-button:hover {
+  color: white;
+  background-color: red;
+}

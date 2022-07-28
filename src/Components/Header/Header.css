@@ -1,0 +1,22 @@
+.main-header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(220, 220, 220);
+  margin-bottom: 2rem;
+}
+
+.main-header > a {
+  margin-left: 2rem;
+} 
+
+.header-links {
+  margin-right: 2rem;
+}
+
+.header-links > a {
+  font-size: 1.5rem;
+  margin: 0 2rem;
+}

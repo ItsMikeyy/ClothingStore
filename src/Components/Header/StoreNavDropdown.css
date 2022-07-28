@@ -1,0 +1,17 @@
+.nav-container {
+  width: 100%;
+  background-color: wheat;
+}
+
+.nav-container > div {
+  font-size: 1.3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.nav-container > div > * {
+  padding: 1rem;
+}
+
+.link {
+  width: 15%;
+}

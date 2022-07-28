@@ -1,0 +1,13 @@
+.primary-img {
+  display: block;
+  margin: 2rem auto;
+  width: 50vw;
+}
+
+@media screen and (max-width: 800px) {
+  .primary-img {
+    width: 100vw;
+    padding: 1rem;
+  }
+  
+}
