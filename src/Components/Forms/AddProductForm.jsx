@@ -76,30 +76,35 @@ const AddProductForm = () => {
       <h1 className="title-header">Add Product</h1>
       <form className="add-form" onSubmit={createProduct}>
         <input
+          autocomplete="off"
           name="name"
           onChange={onChangeHandler}
           className="text-input"
           placeholder="Article Name"
         ></input>
         <input
+          autocomplete="off"
           name="price"
           onChange={onChangeHandler}
           className="text-input"
           placeholder="Article Price"
         ></input>
         <input
+          autocomplete="off"
           name="cost"
           onChange={onChangeHandler}
           className="text-input"
           placeholder="Article Cost"
         ></input>
         <input
+          autocomplete="off"
           name="upc"
           onChange={onChangeHandler}
           className="text-input"
           placeholder="Article UPC"
         ></input>
         <input
+          autocomplete="off"
           name="onHand"
           onChange={onChangeHandler}
           className="text-input"
@@ -108,7 +113,8 @@ const AddProductForm = () => {
         <input onChange={onChangeFileHandler} name="file" type="file"></input>
         <div className="catagory-container">
           <p>Article Catagory</p>
-          <select name="catagory" onChange={onChangeHandler}>
+          <select defaultValue="-" name="catagory" onChange={onChangeHandler}>
+            <option value= "-"></option>
             <option>MALE SHIRTS</option>
             <option>MALE PANTS</option>
             <option>MALE SOCKS</option>
@@ -118,9 +124,9 @@ const AddProductForm = () => {
             <option>BABY SHIRTS</option>
             <option>BABY PANTS</option>
             <option>BABY SOCKS</option>
-            <option>KIDS SHIRTS</option>
-            <option>KIDS PANTS</option>
-            <option>KIDS SOCKS</option>
+            <option>KID SHIRTS</option>
+            <option>KID PANTS</option>
+            <option>KID SOCKS</option>
             <option>NEW CLOTHES</option>
             <option>NEW ARRIVALS</option>
             <option>NEW ACCESSORIES</option>

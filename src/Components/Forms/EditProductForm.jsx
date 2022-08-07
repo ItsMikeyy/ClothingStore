@@ -1,8 +1,8 @@
 import { Fragment, useEffect, useState } from "react";
 
 import { db, storage } from "../../firebase-config";
-import { collection, doc, getDocs, updateDoc } from "firebase/firestore";
-import {getDownloadURL, ref, uploadBytesResumable, deleteObject,} from "@firebase/storage";
+import { collection, doc, getDocs, updateDoc, deleteDoc } from "firebase/firestore";
+import { getDownloadURL, ref, uploadBytesResumable, deleteObject } from "@firebase/storage";
 
 import { useHistory, useParams } from "react-router-dom";
 
@@ -35,7 +35,7 @@ const EditProductForm = () => {
       setFormData({ ...product });
     };
     getProduct();
-  }, [productCollectionRef, productId]);
+  }, []);
 
   const updateProduct = async (e) => {
     e.preventDefault();
@@ -86,7 +86,11 @@ const EditProductForm = () => {
       }
     );
   };
-
+  const deleteProduct = async () => {
+    const productDoc = doc(db, "products", productId);
+    await deleteDoc(productDoc);
+    history.push("/inventory");
+  } 
   const getPathStorageFromUrl = (url) => {
     const baseUrl = process.env.REACT_APP_URL;
     let imagePath = url.replace(baseUrl, "");
@@ -104,33 +108,38 @@ const EditProductForm = () => {
   return (
     <Fragment>
       <Header />
-      <h1 className="title-header">Add Product</h1>
+      <h1 className="title-header">Update Product</h1>
       <form className="add-form" onSubmit={updateProduct}>
         <input
+          autocomplete="off"
           name="name"
           onChange={onChangeHandler}
           className="text-input"
           placeholder={formData.name}
         ></input>
         <input
+          autocomplete="off"
           name="price"
           onChange={onChangeHandler}
           className="text-input"
           placeholder={formData.price}
         ></input>
         <input
+          autocomplete="off"
           name="cost"
           onChange={onChangeHandler}
           className="text-input"
           placeholder={formData.cost}
         ></input>
         <input
+          autocomplete="off"
           name="upc"
           onChange={onChangeHandler}
           className="text-input"
           placeholder={formData.upc}
         ></input>
         <input
+          autocomplete="off"
           name="onHand"
           onChange={onChangeHandler}
           className="text-input"
@@ -139,7 +148,8 @@ const EditProductForm = () => {
         <input onChange={onChangeFileHandler} name="file" type="file"></input>
         <div className="catagory-container">
           <p>Article Catagory</p>
-          <select name="catagory" onChange={onChangeHandler}>
+          <select defaultValue="-" name="catagory" onChange={onChangeHandler}>
+          <option value="-"></option>
             <option>MALE SHIRTS</option>
             <option>MALE PANTS</option>
             <option>MALE SOCKS</option>
@@ -149,9 +159,9 @@ const EditProductForm = () => {
             <option>BABY SHIRTS</option>
             <option>BABY PANTS</option>
             <option>BABY SOCKS</option>
-            <option>KIDS SHIRTS</option>
-            <option>KIDS PANTS</option>
-            <option>KIDS SOCKS</option>
+            <option>KID SHIRTS</option>
+            <option>KID PANTS</option>
+            <option>KID SOCKS</option>
             <option>NEW CLOTHES</option>
             <option>NEW ARRIVALS</option>
             <option>NEW ACCESSORIES</option>
@@ -160,6 +170,9 @@ const EditProductForm = () => {
         <h3>Uploading... {progress}%</h3>
         <button className="submit-button" type="submit">
           UPDATE PRODUCT
+        </button>
+        <button className="submit-button" id="delete" type="button" onClick={deleteProduct}>
+          DELETE PRODUCT
         </button>
       </form>
     </Fragment>

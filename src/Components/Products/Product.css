@@ -5,8 +5,8 @@
 }
 
 .product-img-container {
-  margin-right: 10rem;
-  margin-top: 10rem;
+  margin-right: 5rem;
+  margin-top: 5rem;
 }
 
 .product-img_solo {
@@ -15,7 +15,7 @@
 }
 
 .text-container {
-  margin: 3rem;
+  margin: 2rem;
   position: relative;
 }
 
@@ -88,7 +88,7 @@
 }
 
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1450px) {
   .product-container {
     flex-direction: column;
     justify-content: center;

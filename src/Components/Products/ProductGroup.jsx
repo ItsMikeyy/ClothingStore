@@ -25,19 +25,20 @@ const ProductGroup = () => {
         ...product.data(),
         id: product.id,
       }));
-      const filterLsit = list.filter((product) => {
+      const filterList = list.filter((product) => {
         return product.catagory === filter;
       });
-      setProducts(filterLsit);
+      setProducts(filterList);
     };
     getProducts();
   }, [productFilter]);
+
   console.log(products);
   return (
     <Fragment>
       <Header />
       <StoreNavBar />
-      <h1>{productFilter.replace("-", " ").toUpperCase()}</h1>
+      <h1 className="heading">{productFilter.replace("-", " ").toUpperCase()}</h1>
       <div className="product-grid">
         {products &&
           products.map((product) => {
