@@ -7,6 +7,7 @@ import "./StoreNavBar.css";
 const StoreNavBar = () => {
   const [type, setType] = useState("");
 
+  //Bring up correct menu based off what button is being hovered
   const mouseOverHandler = (entry) => {
     setType(entry);
   };

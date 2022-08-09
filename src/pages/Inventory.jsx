@@ -18,6 +18,7 @@ const Inventory = () => {
 
   const productCollectionRef = collection(db, "products")
 
+  //Get all products and set state
   useEffect(() => {
     const getProducts = async () => {
       const data = await getDocs(productCollectionRef)
@@ -30,6 +31,7 @@ const Inventory = () => {
     setWindowWidth(window.innerWidth);
   };
 
+  //Checking window size to update render on smaller sizes
   useEffect(() => {
     window.addEventListener("resize", updateMedia);
     return () => window.removeEventListener("resize", updateMedia);

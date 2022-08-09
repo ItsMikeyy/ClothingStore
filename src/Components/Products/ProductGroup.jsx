@@ -11,14 +11,17 @@ import Header from "../Header/Header";
 import "./ProductGroup.css";
 
 const ProductGroup = () => {
+  //Get catagory from url param
   const { productFilter } = useParams();
   const [products, setProducts] = useState();
 
   const productCollectionRef = collection(db, "products");
 
   useEffect(() => {
+    //Get all products depending on what catagory was clicked
     const getProducts = async () => {
       const data = await getDocs(productCollectionRef);
+      //String manipulation on url parameter
       let filter = productFilter.replace("-", " ");
       filter = filter.toUpperCase();
       const list = data.docs.map((product) => ({
@@ -33,7 +36,6 @@ const ProductGroup = () => {
     getProducts();
   }, [productFilter]);
 
-  console.log(products);
   return (
     <Fragment>
       <Header />

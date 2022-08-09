@@ -17,6 +17,7 @@ const Product = () => {
 
   const productCollectionRef = collection(db, "products");
 
+  //Load data for product by productID 
   useEffect(() => {
     const getProduct = async () => {
       const data = await getDocs(productCollectionRef);

@@ -21,6 +21,7 @@ const EditProductForm = () => {
 
   const { productId } = useParams();
 
+  //get given product id
   useEffect(() => {
     const getProduct = async () => {
       const data = await getDocs(productCollectionRef);
@@ -37,6 +38,7 @@ const EditProductForm = () => {
     getProduct();
   }, []);
 
+  //update database with new info
   const updateProduct = async (e) => {
     e.preventDefault();
     const productDoc = doc(db, "products", formData.id);
@@ -44,7 +46,8 @@ const EditProductForm = () => {
       history.push("/inventory");
     });
   };
-
+  
+    //update form state
   const onChangeHandler = (e) => {
     const value = e.target.value;
     const name = e.target.name;
@@ -86,11 +89,15 @@ const EditProductForm = () => {
       }
     );
   };
+
+  //Delete product from database
   const deleteProduct = async () => {
     const productDoc = doc(db, "products", productId);
     await deleteDoc(productDoc);
     history.push("/inventory");
   } 
+  
+  //URL string manipulation to change certain image in firebase 
   const getPathStorageFromUrl = (url) => {
     const baseUrl = process.env.REACT_APP_URL;
     let imagePath = url.replace(baseUrl, "");

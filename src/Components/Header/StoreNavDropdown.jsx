@@ -4,6 +4,8 @@ import "./StoreNavDropdown.css";
 
 const StoreNavDropdown = (props) => {
   let content = <p>HELLO</p>;
+  
+  //update dropdown menu showings
   if (props.type === "MALE") {
     content = (
       <div>

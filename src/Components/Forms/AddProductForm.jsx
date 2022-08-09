@@ -19,7 +19,7 @@ const AddProductForm = () => {
   const history = useHistory();
 
   const productCollectionRef = collection(db, "products");
-
+  
   const createProduct = async (e) => {
     e.preventDefault();
     uploadImage(imgData.file);
@@ -33,6 +33,7 @@ const AddProductForm = () => {
     });
   };
 
+  //Upload image to firebase storage
   const uploadImage = (file) => {
     if (!file) {
       return;
@@ -56,6 +57,7 @@ const AddProductForm = () => {
     );
   };
 
+  //Update file state
   const onChangeFileHandler = (e) => {
     const file = e.target.files[0];
     const name = e.target.name;
@@ -64,6 +66,7 @@ const AddProductForm = () => {
     });
   };
 
+  //Navigate back to main inventory page
   if (formData.ImgUrl) {
     addDoc(productCollectionRef, formData).then(() => {
       history.push("/inventory");
