@@ -25,7 +25,7 @@ const Inventory = () => {
       setProducts(data.docs.map((product) => ({...product.data(), id: product.id})))
     }
     getProducts()
-  }, [productCollectionRef])
+  }, [])
 
   const updateMedia = () => {
     setWindowWidth(window.innerWidth);
